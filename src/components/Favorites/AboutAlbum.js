@@ -1,10 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import AlbumStyles from "./AlbumStyles";
-import logoAlbum from "../../assets/img/album.png";
-import ContentAlbum from "./molecules/ContentMusic";
-
-=======
 
 import ContentAlbum from "./molecules/ContentMusic";
 
@@ -12,7 +6,6 @@ import logoAlbum from "../../../assets/img/album.png";
 
 import AlbumStyles from "../Style/Albums/AlbumStyles";
 
->>>>>>> unite
 function AboutAlbum() {
   return (
     <section className="about__album">

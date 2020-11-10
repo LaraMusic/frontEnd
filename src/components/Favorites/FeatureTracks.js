@@ -1,14 +1,9 @@
 import React from "react";
-<<<<<<< HEAD
-import AlbumStyles from "./AlbumStyles";
-import CardSong from "./molecules/CardSong";
-=======
 
 import CardSong from "./molecules/CardSong";
 
 import AlbumStyles from "../Style/Albums/AlbumStyles";
 
->>>>>>> unite
 function FeatureTracks() {
   return (
     <section className="feature__tracks">
