@@ -101,7 +101,6 @@ export default css.HomeStyle`
 }
 /* Top Artist */
 .artist {
-  margin-top: 45rem;
   padding: 0 10%;
   min-width: 1124px;
 }
