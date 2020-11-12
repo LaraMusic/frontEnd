@@ -20,8 +20,9 @@ export default css.RegisterStyle`
 
 .login {
   max-height: 70vw;
-  width: 700px;
+  width: 1000px;
   margin: 3rem auto;
+  margin-bottom:15rem;
 }
 
 .login__tabs-link button {
@@ -56,14 +57,16 @@ export default css.RegisterStyle`
 }
 
 .tabcontent {
+  
   background-color: #f1e2f1;
-  height: 500px;
+  height: 600px;
 }
 
 .tabcontent__form {
   align-items: flex-start;
   justify-content: space-evenly;
-  padding: 0 20px;
+  padding:  20px;
+  margin-top:2rem;
 }
 
 .tabcontent__form h1 {

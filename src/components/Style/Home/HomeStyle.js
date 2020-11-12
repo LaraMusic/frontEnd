@@ -134,9 +134,10 @@ export default css.HomeStyle`
 }
 /* Footer */
 footer {
+  position:static;
   display: flex;
   height: 100px;
-  margin-top: 5em;
+  margin-top: 10rem;
   justify-content: space-between;
   background-color: #f9f9f9;
   padding: 0 10%;
