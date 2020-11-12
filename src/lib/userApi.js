@@ -1,7 +1,8 @@
-import { post } from "../lib/request";
+import { post, patchEditProfile } from "../lib/request";
 import redirect from "../lib/redirect";
-import { validateNewUser } from "./validation";
+import { validateEditUser, validateNewUser } from "./validation";
 
+//Register
 export const createUser = async (
 	first_name,
 	last_name,
@@ -64,5 +65,36 @@ export const signUp = async (
 		return res;
 	}
 	redirect("/welcome");
+	return null;
+};
+
+//Profile
+
+export const editUser = async (first_name, last_name, username) => {
+	try {
+		const response = await patchEditProfile(username, {
+			first_name,
+			last_name,
+			username,
+		});
+
+		console.log(response);
+		return response;
+	} catch (error) {
+		return error.response && error.response.status === 422
+			? "Email is already taken."
+			: "Unknown error. Please try again";
+	}
+};
+
+export const editProfile = async (first_name, last_name, username) => {
+	// const error = validateEditUser(first_name, last_name, username, biography);
+	// if (error) {
+	// 	return error;
+	// }
+	const res = await editUser(first_name, last_name, username);
+	if (!res.data) {
+		return res;
+	}
 	return null;
 };
