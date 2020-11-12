@@ -11,7 +11,6 @@ export default css.sectionPopular`
   height: 40vh;
   color: white;
   background: linear-gradient(#e9a0e9, #9e4f9e);
-
 }
 
 #trending img {
@@ -74,6 +73,47 @@ export default css.sectionPopular`
 opacity:1;
 cursor:pointer;
 }
-
+@media screen and (max-width: 1024px) {
+#trending h3{
+top:20%;
+}
+#trending h1{
+  top:30%;
+  
+}
+#trending h2{
+  top:50%;
+  
+}
+.buttons{
+  top:65%;
+}
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 480px) {
+  
+#trending img {
+  margin-left:50%;
+}
+}
+@media screen and (max-width: 416px) {
+  #trending h3{
+left:10%;
+}
+#trending h1{
+left:10%;
+  
+}
+#trending h2{
+left:13%;
+  
+}
+.buttons{
+  left:10%;
+}
+}
 
 `;

@@ -115,5 +115,22 @@ export default css.ListTrackStyle`
 section h2 {
   font-size: 0.4rem;
 }
+@media screen and (max-width: 1024px) {
+
+}
+@media screen and (max-width: 768px) {
+  .tab__top__title,
+.tab__top__plays,
+.tab__top__time {
+  width: 100%;
+  margin-left: 15%;
+}
+}
+@media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 416px) {
+}
 
 `;

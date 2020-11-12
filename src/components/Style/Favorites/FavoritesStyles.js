@@ -7,6 +7,7 @@ export default css.FavoritesStyles`
   grid-column: 2/3;
   grid-row: 3/4;
 
+
 }
 .feature_tracks_title h1 {
   font-size: 1.3rem;
@@ -44,6 +45,7 @@ export default css.FavoritesStyles`
   display: flex;
   background: linear-gradient(#faf0fa, #d6cbd6);
   position: relative;
+
 }
 .banner__song {
   margin-right: 2em;
@@ -55,7 +57,7 @@ export default css.FavoritesStyles`
   height: 600px;
 }
 .info__album_container {
-
+  
   position: absolute;
   top: -3.8em;
   left: 22rem;
@@ -91,16 +93,16 @@ export default css.FavoritesStyles`
 .content__music {
   height: 500px;
   overflow-y:scroll;
+
 }
 
 .content__music__container {
   width: 60vw;
-  margin: 2rem 0;
-  // max-width: 1720px;
-  
+  margin: 2rem 0; 
 }
 
 .tab__music {
+
   width: 60vw;
   display: flex;
   justify-content: space-between;
@@ -135,7 +137,6 @@ export default css.FavoritesStyles`
 .tab__music__icon {
   text-transform:capitalize;
   width:100%;
-
   padding-left: 2%;
 }
 .tab__music__title {
@@ -202,26 +203,74 @@ export default css.FavoritesStyles`
 #trending{
   grid-column:2/3;
   grid-row:2/3;
-  border:1px solid red;
+
 }
 #trending img{
 width:100%
 }
 
 @media screen and (max-width: 1024px) {
-.containerContent {
 
-  grid-column: 1/3;
-  border:1px solid red;
-}
 }
 @media screen and (max-width: 768px) {
+  .containerContent {
+  grid-column: 1/3;
+
+}
+  .about__album{
+    height:100vh;
+  }
+  .banner__song img{
+    display:none;
+  }
+  .about__album{
+    margin-top:.5rem;
+  }
+  .info__album_container{
+    position:static;
+  }
+  .tab__music {
+    width:100%;
+    padding:.5rem 1rem;
+  }
+    .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  padding-left:5rem;
+}
 }
 @media screen and (max-width: 600px) {
+      .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  padding-left:3rem;
+}
 }
 @media screen and (max-width: 480px) {
+    .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  padding-left:1rem;
 }
-@media screen and (max-width: 416px) {
+}
+@media screen and (max-width: 320px) {
+    .tab__music {
+    width:100%;
+    padding:.3rem .1rem;
+  }
+        .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  font-size:.8rem;
+}
 }
 
 

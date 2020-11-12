@@ -1,15 +1,23 @@
 import css from "styled-jsx/css";
 export default css.PlayerStyles`
-
 #headerHome {
   grid-column: 2/3;
   grid-row: 1/2;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(15, 30, 54, 0.05);
-  position:static;
+  position: static;
 }
-
+.hamburger__menu {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  display: none;
+  cursor:pointer;
+}
+.lara__icon {
+  width: 50px;
+}
 .searchBar {
   display: flex;
   align-items: center;
@@ -93,10 +101,19 @@ nav {
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(15, 30, 54, 0.05);
-  height:100%;
-  position:fixed;
+  height: 100%;
+  position: fixed;
 }
-
+nav.is-active {
+  grid-column: 1/2;
+  grid-row: 1/4;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(15, 30, 54, 0.05);
+  height: 100%;
+  position: fixed;
+transition: all 0.3s ease-in-out;
+}
 .logo {
   display: flex;
   justify-content: center;
@@ -157,26 +174,53 @@ personal-list {
 }
 
 @media screen and (max-width: 1024px) {
-  nav{
-    border:1px solid red;
-    background-color:red;
-    z-index:1;
-    display:none;
-  }
-  #headerHome {
-    display:none;
-      grid-column: 1/3;
-    border:1px solid red;
-  }
-  .userInf{
-    width:0;
-  }
 }
 @media screen and (max-width: 768px) {
+  #headerHome {
+    grid-column: 1/3;
+  }
+  .hamburger__menu {
+    display: flex;
+
+    position:absolute;
+    left:0px;
+    top:20px;
+    z-index:2;
+  }
+  nav {
+    // border:1px solid red;
+    z-index: 1;
+    display: none;
+    background-color:#f9f9f9;
+  }
+  .searchBar input {
+    width: 100%;
+  }
+
+  .searchBar {
+    padding: 0;
+    margin-left: 6rem;
+  }
+  .userInf {
+    width: auto;
+  }
+  .iconsTop {
+    padding: 0;
+  }
 }
 @media screen and (max-width: 600px) {
+  .searchBar input {
+    width: 65px;
+  }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 320px) {
+  .searchBar {
+    // margin-left:15%;
+  }
+  .searchBar input {
+    padding: 0;
+    margin: 0;
+  }
 }
 @media screen and (max-width: 416px) {
 }
