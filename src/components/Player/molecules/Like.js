@@ -23,7 +23,6 @@ const LikeButton = ({ user, song }) => {
       song: state.song,
     });
     const newList = await likeHandler(state.song, user);
-    console.log(newList.musictracks);
     setFavorites(newList.musictracks);
   }
 

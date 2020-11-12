@@ -21,7 +21,6 @@ function Favorite() {
       <HeaderHome></HeaderHome>
       <NavHomeScreen></NavHomeScreen>
       <Favorites />
-      <Play></Play>
     </div>
   );
 }

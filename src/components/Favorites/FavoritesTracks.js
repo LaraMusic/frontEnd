@@ -6,7 +6,6 @@ import { usePlayer } from '../../contexts/PlayerContext';
 
 function FavoritesTracks() {
   const { favorites } = useAuth();
-  console.log(favorites);
   const { setPlayingSong } = usePlayer();
 
   const onPlay = (song) => {
