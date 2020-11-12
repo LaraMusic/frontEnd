@@ -87,7 +87,13 @@ export default css.FavoritesStyles`
   text-align: center;
   font-weight: 600;
 }
+
 .content__music {
+  height: 500px;
+  overflow-y:scroll;
+}
+
+.content__music__container {
   width: 60vw;
   margin: 2rem 0;
   // max-width: 1720px;

@@ -1,5 +1,6 @@
 import css from "styled-jsx/css";
 export default css.PlayerStyles`
+
 #headerHome {
   grid-column: 2/3;
   grid-row: 1/2;
@@ -154,6 +155,7 @@ personal-list {
   flex-direction: column;
   justify-content: space-between;
 }
+
 @media screen and (max-width: 1024px) {
   nav{
     border:1px solid red;
