@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Error from "../../lib/Error";
 import { useAuth } from "../../contexts/AuthContext";
 import { useForm } from "../../Hooks/useForm";
+import { editProfile } from "../../lib/userApi";
 import userImage from "../../../assets/img/user.jpg";
 import Com__SectionProfileStyle from "../Style/Profile/Com__SectionProfileStyle";
 
@@ -9,46 +10,24 @@ const SectionProfile = () => {
 	const { user = {} } = useAuth();
 	const [isEditing, setIsEditing] = useState(false);
 	const [error, setError] = useState("");
+	let inputModifier = isEditing ? false : true;
+	let buttonModifier = isEditing ? "Save" : "Edit";
 
-	const [formRegisterValues, handleRegisterInputChange, reset] = useForm({
+	const [formRegisterValues, handleRegisterInputChange] = useForm({
 		first_name: "",
 		last_name: "",
 		username: "",
-		email: "",
 		biography: "",
-		password: "",
-		password_confirmation: "",
 	});
 
-	const {
-		first_name,
-		last_name,
-		username,
-		email,
-		biography,
-		password,
-		password_confirmation,
-	} = formRegisterValues;
+	const { first_name, last_name, username, biography } = formRegisterValues;
 
 	const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    if(isEditing) {
-         setIsEditing(false);
-         //llamar api con datos
-    } else {
-      setIsEditing(true)
-    }
+		e.preventDefault();
 
-		const error = await signUp(
-			first_name,
-			last_name,
-			username,
-			email,
-			biography,
-			password,
-			password_confirmation
-		);
+		setIsEditing(!isEditing);
+
+		const error = await editProfile(first_name, last_name, username, biography);
 		if (error) {
 			setError(error);
 		}
@@ -75,31 +54,62 @@ const SectionProfile = () => {
 
 						<form className='infAccount' autoComplete='off' onSubmit={handleSubmit}>
 							<div className='infAccount__container'>
-								<label className='infAccount__container__name'>First Name</label>
+								<label htmlFor='first_name' className='infAccount__container__name'>
+									First Name
+								</label>
 								<input
-									placeholder={user.first_name}
+									placeholder={isEditing ? first_name : user.first_name}
 									type='text'
-									value={email}
+									value={first_name}
+									name='first_name'
+									id='first_name'
 									onChange={handleRegisterInputChange}
-									{!isEditing ? 'disabled' : '' }
+									disabled={inputModifier}
 								/>
 							</div>
 							<div className='infAccount__container'>
 								<label className='infAccount__container__name'>Last Name</label>
-								<input placeholder={user.last_name} type='email' readonly />
+								<input
+									placeholder={isEditing ? last_name : user.last_name}
+									type='text'
+									name='last_name'
+									id='last_name'
+									value={last_name}
+									onChange={handleRegisterInputChange}
+									disabled={inputModifier}
+								/>
 							</div>
 							<div className='infAccount__container'>
 								<label className='infAccount__container__name'>Your NickName</label>
-								<input placeholder={user.username} type='text' readonly />
+								<input
+									placeholder={user.username}
+									type='text'
+									id='username'
+									name='username'
+									value={user.username}
+									disabled
+								/>
 							</div>
 							<div className='infAccount__container'>
 								<label className='infAccount__container__name'>
-									Your Favourite Music
+									Your Favorite Music
 								</label>
-								<input placeholder={user?.profile?.biography} type='text' readonly />
+								<input
+									placeholder={isEditing ? biography : user?.profile?.biography}
+									type='text'
+									id='biography'
+									name='biography'
+									value={biography}
+									onChange={handleRegisterInputChange}
+									disabled={inputModifier}
+								/>
 							</div>
+
+							<div className='form-item' id='email'>
+								<input type='hidden' id='email' name='email' value={user.email} />
+							</div>
+							<button type='submit'>{buttonModifier}</button>
 						</form>
-						<button>Edit</button>
 					</div>
 					<style jsx Com__SectionProfileStyle>
 						{Com__SectionProfileStyle}

@@ -106,6 +106,7 @@ export default css.Com__SectionProfileStyle`
   width: 467px;
   border: none;
   border-bottom: 1px solid #989898;
+  text-transform: capitalize;
 }
 
 .infAccount__container input:focus {

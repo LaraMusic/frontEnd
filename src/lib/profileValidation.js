@@ -1,21 +1,12 @@
-export const validateNewUser = (
-	first_name,
-	last_name,
-	username,
-	email,
-	biography,
-	password,
-	password_confirmation
-) => {
+export const validateNewUser = (first_name, last_name, username, biography) => {
 	if (!first_name) {
 		return "Your first name is required.";
 	}
-
 	if (!last_name) {
-		return "Your last Name is required.";
+		return "Your last name  is required.";
 	}
 	if (!username) {
-		return "The User name is required.";
+		return "Please, tell us what do you want be called.";
 	}
 
 	if (!biography)
@@ -26,26 +17,6 @@ export const validateNewUser = (
 	}
 
 	return validateCredentials(email, password);
-};
-
-export const validateEditUser = (
-	first_name,
-	last_name,
-	username,
-	biography
-) => {
-	if (!first_name) {
-		return "Your first name is required.";
-	}
-	if (!last_name) {
-		return "Your last name  is required.";
-	}
-	if (!username) {
-		return "Fill username.";
-	}
-
-	if (!biography)
-		return "We need know your music preferences, please fill this field";
 };
 
 export const validateCredentials = (email, password) => {

@@ -21,7 +21,14 @@ export const get = async (endpoint, jwt) => {
 	const headers = jwt
 		? {
 				headers: { Authorization: `Bearer ${jwt}` },
-		    } 
+		  }
 		: null;
 	return axios.get(getUrl(endpoint), headers);
+};
+
+export const patchEditProfile = async (username, data) => {
+	const API_HOST = "https://laramusicapi.herokuapp.com/api/v1/users/";
+	return axios.patch(`${API_HOST}pepe/`).then((res) => {
+		return res;
+	});
 };
