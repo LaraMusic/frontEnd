@@ -1,77 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { usePlayer } from '../../../contexts/PlayerContext';
-import { getPlaylist } from '../../../lib/hearThisAtRequest';
-import { useAuth } from '../../../contexts/AuthContext';
-import LikeButton from './Like';
-import { VscEllipsis } from 'react-icons/vsc';
-import { GrAddCircle } from 'react-icons/gr';
-import { CgPlayButtonO } from 'react-icons/cg';
-import ListTrackStyle from '../../Style/Player/molecules/ListTrackStyle';
+import React, { useState, useEffect } from "react";
+import { getPlaylistCleaned } from "../../../lib/spotifyRequest";
+import { useAuth } from "../../../contexts/AuthContext";
+import LikeButton from "./Like";
+import RoundPlayButton from "../../Play/molecules/RoundPlayButton";
+import ListTrackStyle from "../../Style/Player/molecules/ListTrackStyle";
 
 const ListTrack = () => {
-  const { setPlayingSong } = usePlayer();
   const { user } = useAuth();
-
-  /* call API */
   const [music, setMusic] = useState([]);
   useEffect(() => {
     obtenerDatos();
   }, []);
 
   const obtenerDatos = async () => {
-    const music = await getPlaylist('/feed/popular', 5);
-
-    setMusic(music);
-  };
-
-  const onPlay = (song) => {
-    setPlayingSong(song);
+    const playlist = await getPlaylistCleaned("37i9dQZF1DX5BAPG29mHS8", 12);
+    const musica = playlist;
+    setMusic(musica);
   };
 
   return (
     <section>
-      <div className='track'>
+      <div className="top__tracks__title">
         <h2>Top Tracks</h2>
-        <div className='tab__top'>
-          <p className='tab__top__number'>#</p>
-          <p className='tab__top__tittel'>title</p>
-          <p className='tab__top__plays'>Daily plays</p>
-          <p className='tab__top__time'>Time</p>
-          <p className='tab__top__option'>Options</p>
-        </div>
+      </div>
+      <div className="tab__top">
+        <p className="tab__top__number">#</p>
+        <p className="tab__top__title">Title</p>
+        <p className="tab__top__plays">Daily plays</p>
+        <p className="tab__top__time">Duration</p>
+      </div>
+      <div className="track">
         {music.map((item) => {
           return (
-            <div className='tab__music'>
-              <div className='tab__music__icons'>
-                <p>1</p>
-                <div className='icon'>
-                  <CgPlayButtonO
-                    onClick={() => {
-                      onPlay(item);
-                    }}
-                  ></CgPlayButtonO>
+            <div className="tab__music" key={item.song_id}>
+              <p>1</p>
+              <div className="tab__music__icons">
+                <div className="icon">
+                  <RoundPlayButton song={item} />
                 </div>
-                <div className='icon'>
-                  <LikeButton user={user} song={item}></LikeButton>
-                </div>
-                <div className='icon'>
-                  <GrAddCircle></GrAddCircle>
+                <div className="icon">
+                  <LikeButton user={user.username} song={item}></LikeButton>
                 </div>
               </div>
-              <p className='tab__music__tittel'>{item.title.substr(0, 12)}</p>
-              <p className='tab__music__plays'>{item.views}</p>
-              <p className='tab__music__time'>{item.duration}</p>
-              <div className='tab__music__icon'>
-                <VscEllipsis></VscEllipsis>
-              </div>
+              <span className="tab__music__title">{item.title}</span>
+              <span className="tab__music__plays">{item.views}</span>
+              <span className="tab__music__time">
+                {parseInt(item.duration)}
+              </span>
             </div>
           );
         })}
-
-        <style jsx ListTrackStyle>
-          {ListTrackStyle}
-        </style>
       </div>
+
+      <style jsx ListTrackStyle>
+        {ListTrackStyle}
+      </style>
     </section>
   );
 };
