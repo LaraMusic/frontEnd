@@ -42,7 +42,7 @@ const ListTrack = () => {
                 <p>1</p>
                 <RoundPlayButton song={item} />
                 <div className='icon'>
-                  <LikeButton user={user} song={item}></LikeButton>
+                  <LikeButton user={user.username} song={item}></LikeButton>
                 </div>
                 <div className='icon'>
                   <GrAddCircle></GrAddCircle>

@@ -6,6 +6,7 @@ import { usePlayer } from '../../contexts/PlayerContext';
 
 function FavoritesTracks() {
   const { favorites } = useAuth();
+  console.log(favorites);
   const { setPlayingSong } = usePlayer();
 
   const onPlay = (song) => {
@@ -17,7 +18,7 @@ function FavoritesTracks() {
         <h1>Featured Tracks</h1>
       </div>
       <div className='card__list'>
-        {favorites.map((item) => (
+        {favorites.musictracks.map((item) => (
           <div className='card__song' key={item.id}>
             <div className='card__song--image'>
               <img src={item.image_uri} alt={item.title} />
