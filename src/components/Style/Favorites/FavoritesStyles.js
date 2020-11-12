@@ -72,6 +72,7 @@ export default css.FavoritesStyles`
   color: #0f1e36;
   font-size: 3.6em;
   font-weight: bold;
+  text-transform:capitalize;
 }
 .authors__album {
   color: #969696;
