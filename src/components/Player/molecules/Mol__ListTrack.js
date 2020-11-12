@@ -5,6 +5,7 @@ import LikeButton from './Like';
 import RoundPlayButton from '../../Play/molecules/RoundPlayButton';
 import { VscEllipsis } from 'react-icons/vsc';
 import { GrAddCircle } from 'react-icons/gr';
+import { CgPlayButtonO } from 'react-icons/cg';
 import ListTrackStyle from '../../Style/Player/molecules/ListTrackStyle';
 
 const ListTrack = () => {
@@ -26,39 +27,6 @@ const ListTrack = () => {
 
   return (
     <section>
-<<<<<<< HEAD
-      <div className='track'>
-        <h2 className='title'>Top Tracks</h2>
-        <div className='tab__top'>
-          <p className='tab__top__number'>#</p>
-          <p className='tab__top__tittel'>title</p>
-          <p className='tab__top__plays'>Daily plays</p>
-          <p className='tab__top__time'>Time</p>
-          <p className='tab__top__option'>Options</p>
-        </div>
-        {music.map((item) => {
-          return (
-            <div className='tab__music'>
-              <div className='tab__music__icons'>
-                <p>1</p>
-                <RoundPlayButton song={item} />
-                <div className='icon'>
-                  <LikeButton user={user} song={item}></LikeButton>
-                </div>
-                <div className='icon'>
-                  <GrAddCircle></GrAddCircle>
-                </div>
-              </div>
-              <p className='tab__music__tittel'>{item.title}</p>
-              <p className='tab__music__plays'>{item.views}</p>
-              <p className='tab__music__time'>{item.length}</p>
-              <div className='tab__music__icon'>
-                <VscEllipsis></VscEllipsis>
-              </div>
-            </div>
-          );
-        })}
-=======
       <div className="track">
         <h2 className="title">Top Tracks</h2>
         <div className="track_container">
@@ -75,11 +43,11 @@ const ListTrack = () => {
                 <div className="tab__music__icons">
                   <p>1</p>
                   <div className="icon">
-                    <CgPlayButtonO
+                    <CgPlayButtonO>
                       onClick={() => {
                         onPlay(item);
                       }}
-                    ></CgPlayButtonO>
+                    </CgPlayButtonO>
                   </div>
                   <div className="icon">
                     <LikeButton user={user} song={item}></LikeButton>
@@ -98,7 +66,6 @@ const ListTrack = () => {
             );
           })}
         </div>
->>>>>>> unite
 
         <style jsx ListTrackStyle>
           {ListTrackStyle}
