@@ -3,7 +3,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import userImage from "../../../assets/img/user.jpg";
 import Com__SectionProfileStyle from "../Style/Profile/Com__SectionProfileStyle";
 
-const SectionProfile = () => {
+const EditProfile = () => {
 	const { user = {} } = useAuth();
 	return (
 		<>
@@ -21,6 +21,7 @@ const SectionProfile = () => {
 						<p>
 							Update your personal data for receive more and best music recomendations
 						</p>
+
 						<form className='infAccount' autoComplete='off'>
 							<div className='infAccount__container'>
 								<label className='infAccount__container__name'>First Name</label>
@@ -41,7 +42,7 @@ const SectionProfile = () => {
 								<input placeholder={user?.profile?.biography} type='text' required />
 							</div>
 						</form>
-						{/* <button>Edit</button> */}
+						<button>Edit</button>
 					</div>
 					<style jsx Com__SectionProfileStyle>
 						{Com__SectionProfileStyle}
@@ -52,4 +53,4 @@ const SectionProfile = () => {
 	);
 };
 
-export default SectionProfile;
+export default EditProfile;
