@@ -97,10 +97,11 @@ export default css.FavoritesStyles`
   width: 60vw;
   margin: 2rem 0;
   // max-width: 1720px;
-
+  
 }
 
 .tab__music {
+  width: 60vw;
   display: flex;
   justify-content: space-between;
   padding: 1rem 1rem;
@@ -132,10 +133,13 @@ export default css.FavoritesStyles`
 .tab__music__plays,
 .tab__music__time,
 .tab__music__icon {
+  text-transform:capitalize;
+  width:100%;
+
   padding-left: 2%;
 }
 .tab__music__title {
-  width: 250px;
+  width: 100%;
   padding: 0;
   text-align: left;
 }
@@ -143,6 +147,7 @@ export default css.FavoritesStyles`
 .tab__music__icons {
   display: flex;
   justify-content: space-between;
+  margin-right:10%;
 }
 .card__song {
   margin-right: 2em;
