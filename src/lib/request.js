@@ -28,7 +28,7 @@ export const get = async (endpoint, jwt) => {
 
 export const patchEditProfile = async (username, data) => {
 	const API_HOST = "https://laramusicapi.herokuapp.com/api/v1/users/";
-	return axios.patch(`${API_HOST}pepe/`).then((res) => {
+	return axios.patch(`${API_HOST}${username}/`, data).then((res) => {
 		return res;
 	});
 };

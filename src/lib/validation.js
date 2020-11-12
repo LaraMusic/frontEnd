@@ -43,7 +43,6 @@ export const validateEditUser = (
 	if (!username) {
 		return "Fill username.";
 	}
-
 	if (!biography)
 		return "We need know your music preferences, please fill this field";
 };

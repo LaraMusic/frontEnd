@@ -7,31 +7,34 @@ import userImage from "../../../assets/img/user.jpg";
 import Com__SectionProfileStyle from "../Style/Profile/Com__SectionProfileStyle";
 
 const SectionProfile = () => {
-	const { user = {} } = useAuth();
+	const { user = {}, Edit } = useAuth();
 	const [isEditing, setIsEditing] = useState(false);
 	const [error, setError] = useState("");
 	let inputModifier = isEditing ? false : true;
 	let buttonModifier = isEditing ? "Save" : "Edit";
+	let buttondisplay = "diplay: none;";
 
 	const [formRegisterValues, handleRegisterInputChange] = useForm({
 		first_name: "",
 		last_name: "",
 		username: "",
-		biography: "",
 	});
 
-	const { first_name, last_name, username, biography } = formRegisterValues;
+	const { first_name, last_name, username } = formRegisterValues;
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		setIsEditing(!isEditing);
-
-		const error = await editProfile(first_name, last_name, username, biography);
+		const error = await editProfile(first_name, last_name, username);
 		if (error) {
 			setError(error);
 		}
 		return false;
+	};
+
+	const handleEdit = (e) => {
+		e.preventDefault();
+		setIsEditing(!isEditing);
 	};
 
 	return (
@@ -44,7 +47,6 @@ const SectionProfile = () => {
 							<img className='userInf__photo' src={userImage} alt={user.username} />
 						</div>
 						<h2>{user.username} </h2>
-						{/* <h4>Change Password</h4> */}
 					</div>
 					<div className='userForm'>
 						<h1>Account</h1>
@@ -82,15 +84,16 @@ const SectionProfile = () => {
 							<div className='infAccount__container'>
 								<label className='infAccount__container__name'>Your NickName</label>
 								<input
-									placeholder={user.username}
+									placeholder={isEditing ? username : user.username}
 									type='text'
 									id='username'
 									name='username'
-									value={user.username}
-									disabled
+									value={username}
+									onChange={handleRegisterInputChange}
+									disabled={inputModifier}
 								/>
 							</div>
-							<div className='infAccount__container'>
+							{/* <div className='infAccount__container'>
 								<label className='infAccount__container__name'>
 									Your Favorite Music
 								</label>
@@ -103,12 +106,36 @@ const SectionProfile = () => {
 									onChange={handleRegisterInputChange}
 									disabled={inputModifier}
 								/>
-							</div>
+							</div> */}
+							{/* 
+							<div className='infAccount__container'>
+								<label className='infAccount__container__name'>
+									Your profile image
+								</label>
+								<input
+									type='file'
+									accept='.jpg,.png'
+									id='picture'
+									name='picture'
+									value={picture}
+									onChange={handleRegisterInputChange}
+									disabled={inputModifier}
+								/>
+							</div> */}
 
 							<div className='form-item' id='email'>
 								<input type='hidden' id='email' name='email' value={user.email} />
 							</div>
-							<button type='submit'>{buttonModifier}</button>
+							{!isEditing && (
+								<button onClick={handleEdit} type='submit'>
+									Edit
+								</button>
+							)}
+							{isEditing && (
+								<button className={buttondisplay} type='submit'>
+									{buttonModifier}
+								</button>
+							)}
 						</form>
 					</div>
 					<style jsx Com__SectionProfileStyle>
