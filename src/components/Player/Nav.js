@@ -43,7 +43,7 @@ const NavHomeScreen = () => {
               </Link>
             </li>
             <li className="item">
-              <Link href="/player">
+              <Link href="/discover">
                 <a>
                   <div>
                     <VscRocket />
