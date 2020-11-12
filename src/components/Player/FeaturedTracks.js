@@ -2,13 +2,16 @@ import React from "react";
 import { useAuth } from "../../contexts/AuthContext";
 import playbutton from "../../../assets/img/play.svg";
 import FavoritesStyles from "../Style/Favorites/FavoritesStyles";
-
+import { usePlayer } from "../../contexts/PlayerContext";
 function FeaturedTracks({ title }) {
+  const { setPlayingSong } = usePlayer();
   const { user } = useAuth();
   const musiclist = user?.profile?.musiclists ?? [];
   const tracks =
     musiclist.find((playlist) => playlist.title === title)?.musictracks ?? [];
-
+  const onPlay = (song) => {
+    setPlayingSong(song);
+  };
   return (
     <section className="feature__tracks">
       <div className="feature_tracks_title">
