@@ -1,33 +1,35 @@
 import css from "styled-jsx/css";
 
 export default css.ListTrackStyle`
-
-.track {
-  height: 360px;
-  flex-wrap: nowrap;
-  overflow-y: scroll;
+.container__home {
   background: linear-gradient(#faf0fa, #d6cbd6);
 }
-
+.track {
+  height: 360px;
+  margin-left: 2%;
+  flex-wrap: nowrap;
+  overflow-y: scroll;
+}
 .track::-webkit-scrollbar {
   display: none;
 }
 
-.track h2 {
-  padding-left: 16px;
+.top__tracks__title h2 {
   font-size: 1.3rem;
-  line-height: 22px;
   font-weight: bold;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
-.track_container{
+.track_container {
   height: 340px;
-  overflow-y:scroll;
+  overflow-y: scroll;
 }
 
 .tab__top {
   display: flex;
-  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  margin-left: 3%;
 }
 
 .tab__top p {
@@ -39,38 +41,40 @@ export default css.ListTrackStyle`
   width: 30%;
 }
 
-.tab__top__tittel,
-.tab__music__tittel,
+.tab__top__title,
 .tab__top__plays,
-.tab__music__plays,
-.tab__top__time,
-.tab__music__time,
-.tab__top__option,
-.tab__music__icon {
-  width: 20%;
-  padding-left: 5%;
+.tab__top__time {
+  width: 100%;
+  margin-left: 25%;
 }
-.tab__music__titlel {
-  width: 350px;
-  padding: 0;
-  text-align: left;
+
+
+
+.tab__music__title {
+  width: 100%;
+  margin-right:20%;
+  margin-left:10%;
 }
-.tab__music__icon {
-  padding-left: 7%;
+.tab__music__plays{
+  width: 100%;
+  margin-right:10%;
+}
+.tab__music__time {
+  width: 100%;
+  margin-right:0;
 }
 
 .tab__music {
   display: flex;
-
   padding: 1rem 1rem;
 }
+.tab__music span{
+    opacity:0.8;
+    font-weight:300;
+}
+.tab__music p{
+  margin-right: 10%;
 
-.tab__music:hover {
-  transition: all 0.3s ease-in-out;
-  background-color: white;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  cursor: context-menu;
 }
 .tab__music:hover {
   transition: all 0.3s ease-in-out;
@@ -81,9 +85,10 @@ export default css.ListTrackStyle`
 }
 
 .tab__music__icons {
-  width: 30%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+
 }
 
 .icon {
@@ -97,37 +102,7 @@ export default css.ListTrackStyle`
 .content__music {
   width: 60vw;
   margin: 3rem 0;
-  max-width: 1720px;
 }
-
-.tab__music {
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 1rem;
-}
-
-.tab__music:hover {
-  transition: all 0.3s ease-in-out;
-  background-color: white;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  cursor: context-menu;
-}
-.tab__music:hover {
-  transition: all 0.3s ease-in-out;
-  background-color: white;
-  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-  cursor: context-menu;
-}
-.icon {
-  cursor: pointer;
-  opacity: 0.5;
-}
-.icon:hover {
-  opacity: 1;
-}
-
 .about__album {
   margin-top: 5em;
   grid-column: 2/4;
@@ -137,8 +112,8 @@ export default css.ListTrackStyle`
   position: relative;
 }
 
-section h2{
-  font-size:.4rem;
+section h2 {
+  font-size: 0.4rem;
 }
 
 `;

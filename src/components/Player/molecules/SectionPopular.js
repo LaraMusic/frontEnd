@@ -20,7 +20,7 @@ const SectionPopular = () => {
     <>
       {music.map((item) => {
         return (
-          <section id="trending">
+          <section id="trending" key={item.song_id}>
             <img src={item.image_uri} />
             <h3>// TRENDING</h3>
             <h1>{item.title}</h1>

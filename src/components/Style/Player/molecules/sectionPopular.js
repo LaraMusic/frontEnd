@@ -11,7 +11,7 @@ export default css.sectionPopular`
   height: 40vh;
   color: white;
   background: linear-gradient(#e9a0e9, #9e4f9e);
-  margin-bottom:1rem;
+
 }
 
 #trending img {

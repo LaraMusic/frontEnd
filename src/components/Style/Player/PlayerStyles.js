@@ -164,6 +164,7 @@ personal-list {
     display:none;
   }
   #headerHome {
+    display:none;
       grid-column: 1/3;
     border:1px solid red;
   }

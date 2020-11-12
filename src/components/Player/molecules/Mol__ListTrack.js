@@ -3,55 +3,50 @@ import { getPlaylistCleaned } from "../../../lib/spotifyRequest";
 import { useAuth } from "../../../contexts/AuthContext";
 import LikeButton from "./Like";
 import RoundPlayButton from "../../Play/molecules/RoundPlayButton";
-import { VscEllipsis } from "react-icons/vsc";
-import { GrAddCircle } from "react-icons/gr";
-import { CgPlayButtonO } from "react-icons/cg";
 import ListTrackStyle from "../../Style/Player/molecules/ListTrackStyle";
 
 const ListTrack = () => {
   const { user } = useAuth();
-
-  /* call API */
   const [music, setMusic] = useState([]);
   useEffect(() => {
     obtenerDatos();
   }, []);
 
   const obtenerDatos = async () => {
-    const playlist = await getPlaylistCleaned("37i9dQZF1DX5BAPG29mHS8", 20);
-
+    const playlist = await getPlaylistCleaned("37i9dQZF1DX5BAPG29mHS8", 12);
     const musica = playlist;
-    console.log(musica);
     setMusic(musica);
   };
 
   return (
     <section>
+      <div className="top__tracks__title">
+        <h2>Top Tracks</h2>
+      </div>
+      <div className="tab__top">
+        <p className="tab__top__number">#</p>
+        <p className="tab__top__title">Title</p>
+        <p className="tab__top__plays">Daily plays</p>
+        <p className="tab__top__time">Duration</p>
+      </div>
       <div className="track">
-        <h2 className="title">Top Tracks</h2>
-        <div className="tab__top">
-          <p className="tab__top__number">#</p>
-          <p className="tab__top__tittel">title</p>
-          <p className="tab__top__plays">Daily plays</p>
-          <p className="tab__top__time">Time</p>
-          <p className="tab__top__option">Options</p>
-        </div>
         {music.map((item) => {
           return (
-            <div className="tab__music">
+            <div className="tab__music" key={item.song_id}>
+              <p>1</p>
               <div className="tab__music__icons">
-                <p>1</p>
-                <RoundPlayButton song={item} />
+                <div className="icon">
+                  <RoundPlayButton song={item} />
+                </div>
                 <div className="icon">
                   <LikeButton user={user.username} song={item}></LikeButton>
                 </div>
-                <p className="tab__music__tittel">{item.title}</p>
-                <p className="tab__music__plays">{item.views}</p>
-                <p className="tab__music__time">{item.length}</p>
-                <div className="tab__music__icon">
-                  <VscEllipsis></VscEllipsis>
-                </div>
               </div>
+              <span className="tab__music__title">{item.title}</span>
+              <span className="tab__music__plays">{item.views}</span>
+              <span className="tab__music__time">
+                {parseInt(item.duration)}
+              </span>
             </div>
           );
         })}
