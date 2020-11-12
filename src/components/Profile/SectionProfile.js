@@ -3,7 +3,7 @@ import Error from "../../lib/Error";
 import { useAuth } from "../../contexts/AuthContext";
 import { useForm } from "../../Hooks/useForm";
 import { editProfile } from "../../lib/userApi";
-import userImage from "../../../assets/img/user.jpg";
+import userImage from "../../../assets/img/profile-user-player.svg";
 import Com__SectionProfileStyle from "../Style/Profile/Com__SectionProfileStyle";
 
 const SectionProfile = () => {
