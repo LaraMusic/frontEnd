@@ -16,7 +16,7 @@ const playlist = () => {
       <div className="containerContent">
         <List title={title} />
       </div>
-      <Play></Play>
+      {/* <Play></Play> */}
       <style jsx FavoritesStyles>
         {FavoritesStyles}
       </style>
