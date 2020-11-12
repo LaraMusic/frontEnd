@@ -8,6 +8,7 @@ export default css.AlbumStyles`
   grid-row: 2/3;
 }
 .feature_tracks_title h1 {
+  padding-top:1rem;
   font-size: 1.3rem;
   font-weight: bold;
 }

@@ -52,7 +52,6 @@ export const AuthProvider = ({ children }) => {
 
   const setFavorites = (favoritesList) => {
     setfavorites(favoritesList);
-    console.log('>>>', favorites);
   };
 
   return (

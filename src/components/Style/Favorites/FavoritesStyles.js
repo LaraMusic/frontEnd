@@ -5,7 +5,9 @@ export default css.FavoritesStyles`
 .feature__tracks {
   padding-left: 1rem;
   grid-column: 2/3;
-  grid-row: 2/3;
+  grid-row: 3/4;
+
+
 }
 .feature_tracks_title h1 {
   font-size: 1.3rem;
@@ -14,18 +16,23 @@ export default css.FavoritesStyles`
 .card__list {
   display: flex;
   margin-top: 10px;
-  flex-wrap: wrap;
+  overflow-x: scroll;
 }
 .card__list img {
   width: 150px;
   border-radius: 5px;
 }
+.container__favorites{
+  overflow-y: scroll;
+  height:65vh;
+  position:static;
 
+}
 .containerContent {
   padding: 0.5rem 0 0 0;
-  overflow-y: scroll;
+
   grid-column: 2/3;
-  grid-row: 2/4;
+  grid-row: 2/5;
 }
 .containerContent::-webkit-scrollbar {
   display: none;
@@ -33,11 +40,12 @@ export default css.FavoritesStyles`
 
 .about__album {
   margin-top: 5em;
-  grid-column: 2/4;
-  grid-row: 3/5;
+  grid-column: 2/3;
+  grid-row: 4/5;
   display: flex;
   background: linear-gradient(#faf0fa, #d6cbd6);
   position: relative;
+
 }
 .banner__song {
   margin-right: 2em;
@@ -49,6 +57,7 @@ export default css.FavoritesStyles`
   height: 600px;
 }
 .info__album_container {
+  
   position: absolute;
   top: -3.8em;
   left: 22rem;
@@ -63,6 +72,7 @@ export default css.FavoritesStyles`
   color: #0f1e36;
   font-size: 3.6em;
   font-weight: bold;
+  text-transform:capitalize;
 }
 .authors__album {
   color: #969696;
@@ -80,13 +90,21 @@ export default css.FavoritesStyles`
   text-align: center;
   font-weight: 600;
 }
+
 .content__music {
+  height: 500px;
+  overflow-y:scroll;
+
+}
+
+.content__music__container {
   width: 60vw;
-  margin: 3rem 0;
-  max-width: 1720px;
+  margin: 2rem 0; 
 }
 
 .tab__music {
+
+  width: 60vw;
   display: flex;
   justify-content: space-between;
   padding: 1rem 1rem;
@@ -118,17 +136,21 @@ export default css.FavoritesStyles`
 .tab__music__plays,
 .tab__music__time,
 .tab__music__icon {
+  text-transform:capitalize;
+  width:100%;
   padding-left: 2%;
 }
 .tab__music__title {
-  width: 250px;
+  width: 100%;
   padding: 0;
   text-align: left;
 }
-.tab__music__icon {
-  padding-left: 7%;
-}
 
+.tab__music__icons {
+  display: flex;
+  justify-content: space-between;
+  margin-right:10%;
+}
 .card__song {
   margin-right: 2em;
 }
@@ -178,6 +200,78 @@ export default css.FavoritesStyles`
 }
 .card__song--image img:hover {
   opacity: 1;
+}
+#trending{
+  grid-column:2/3;
+  grid-row:2/3;
+
+}
+#trending img{
+width:100%
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+@media screen and (max-width: 768px) {
+  .containerContent {
+  grid-column: 1/3;
+
+}
+  .about__album{
+    height:100vh;
+  }
+  .banner__song img{
+    display:none;
+  }
+  .about__album{
+    margin-top:.5rem;
+  }
+  .info__album_container{
+    position:static;
+  }
+  .tab__music {
+    width:100%;
+    padding:.5rem 1rem;
+  }
+    .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  padding-left:5rem;
+}
+}
+@media screen and (max-width: 600px) {
+      .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  padding-left:3rem;
+}
+}
+@media screen and (max-width: 480px) {
+    .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  padding-left:1rem;
+}
+}
+@media screen and (max-width: 320px) {
+    .tab__music {
+    width:100%;
+    padding:.3rem .1rem;
+  }
+        .tab__music__title,
+.tab__music__plays,
+.tab__music__time,
+.tab__music__icon {
+
+  font-size:.8rem;
+}
 }
 
 
