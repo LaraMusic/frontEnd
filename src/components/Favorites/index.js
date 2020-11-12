@@ -10,7 +10,6 @@ import FavoritesStyles from '../Style/Favorites/FavoritesStyles';
 
 const Favorites = () => {
   const { favorites } = useAuth();
-  console.log(favorites.musictracks);
 
   if (!favorites.musictracks) {
     return null;

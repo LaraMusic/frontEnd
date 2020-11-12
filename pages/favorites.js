@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeaderHome from '../src/components/Player/Header';
 import NavHomeScreen from '../src/components/Player/Nav.js';
 import Favorites from '../src/components/Favorites';
@@ -14,7 +14,9 @@ function Favorite() {
     const newList = await getFavoriteSongs(user);
     setFavorites(newList);
   }
-  init();
+  useEffect(() => {
+    init();
+  }, []);
   return (
     <div className='lara'>
       <HeaderHome></HeaderHome>
