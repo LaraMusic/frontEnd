@@ -15,7 +15,7 @@ function Hero() {
             In Lara Music you can play your favorite music sets in playlist by
             albums, artist, genere and suggested, Here the music never stops!
           </p>
-          <a href="/login" className="hero__info__btn">
+          <a href="/register" className="hero__info__btn">
             Join Us
           </a>
         </div>
