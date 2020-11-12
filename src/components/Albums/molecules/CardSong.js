@@ -12,22 +12,19 @@ function CardSong() {
   }, []);
 
   const obtenerDatos = async () => {
-    const playlist = await getPlaylistCleaned("37i9dQZF1DX5BAPG29mHS8", 20);
-
+    const playlist = await getPlaylistCleaned("37i9dQZF1DX5BAPG29mHS8", 12);
     const musica = playlist;
-    //console.log(musica);
     setMusic(musica);
   };
 
   const onPlay = (song) => {
-    // console.log(id);
     setPlayingSong(song);
   };
 
   return (
     <>
       {music.map((item) => (
-        <div className="card__song" key={item.id}>
+        <div className="card__song" key={item.song_id}>
           <div className="card__song--image">
             <img src={item.image_uri} alt="" />
             <span

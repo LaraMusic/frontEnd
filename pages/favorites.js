@@ -9,7 +9,6 @@ import { getFavoriteSongs } from '../src/lib/likeHandler';
 function Favorite() {
   const { setFavorites } = useAuth();
   const { user } = useAuth();
-
   async function init() {
     const newList = await getFavoriteSongs(user);
     setFavorites(newList);
